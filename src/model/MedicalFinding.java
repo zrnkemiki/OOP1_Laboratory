@@ -7,7 +7,7 @@ public class MedicalFinding {
 	
 	private int cena;
 	private Date date;
-	private List<AnalysisType> analsysType;
+	private List<AnalysisType> analysisType;
 	
 	
 

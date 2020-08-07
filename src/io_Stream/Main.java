@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.text.ParseException;
 
 import controller.Menu;
-import model.DataBase;
 
 public class Main {
 
@@ -12,8 +11,14 @@ public class Main {
 		// TODO Auto-generated method stub
 		LoadUserData ld = new LoadUserData();
 		ld.loadUsers();
+		LoadAnalysisRequest lar = new LoadAnalysisRequest();
+		lar.loadAnalysisRequests();
 		Menu menu = new Menu();
 		menu.start();
+		
+		
+		
+		
 		
 		
 	}

@@ -45,9 +45,48 @@ public class Menu {
 				start();
 				break;
 			}
-
+		}
+		
+		else if (user.getUserType() == UserType.PACIJENT) {
+			System.out.println("-------------------------------------\n");
+			System.out.println("1) Pregled profila.");
+			System.out.println("2) Pregled analiza.");
+			System.out.println("3) Zakazivanje termina.");
+			System.out.println("0) Odjavljivanje.");
+			input = chooseMenuOption(4, true);
+			switch (input) {
+			case 1:
+				System.out.println("-------------------------------------\n");
+				System.out.println("1) Menu 1");
+				System.out.println("0) Izlazak iz programa");
+				input = chooseMenuOption(2, true);
+			case 2:
+				System.out.println("-------------------------------------\n");
+				System.out.println("1) TO-DO Pregled analiza");
+				System.out.println("0) Izlazak iz programa");
+				input = chooseMenuOption(2, true);	
+			case 3:
+				Termin t = new Termin();
+				t.zakazivanjeTermina(user);
+				break;
+			case 0:
+				System.out.println("Uspesno ste se izlogovali. \n");
+				user = null;
+				start();
+				break;
+			}
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public static int chooseMenuOption(int range, boolean saNulom) {
 		int izbor = -1;
