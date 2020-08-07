@@ -1,17 +1,18 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
-public class AnalysisRequest {
+public class Appointment {
 	private long id;
 	private String LBO;
-	private Date date;
+	private LocalDate date;
 	private CollectionType collectionType;
 	private String status;
 	private long analysisId;
 	
 	
-	public AnalysisRequest() {
+	public Appointment() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -37,12 +38,12 @@ public class AnalysisRequest {
 	}
 
 
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
 
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 

@@ -1,7 +1,7 @@
 package io_Stream;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class IOHandler {
@@ -26,14 +26,14 @@ public class IOHandler {
 		return broj;
 	}
 	
-	public static Date dateInput() {
+	public static LocalDate dateInput() {
 		String unos;
-		Date date;
+		LocalDate date;
 		while(true)
 		{
 			unos = input.nextLine();
 			try {
-				date = new SimpleDateFormat("yyyy-MM-dd").parse(unos);
+				date = LocalDate.parse(unos);
 				break;
 			} catch(Exception e) {
 				System.out.println("Date format not valid!");

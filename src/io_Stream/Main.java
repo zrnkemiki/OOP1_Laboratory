@@ -3,22 +3,23 @@ package io_Stream;
 import java.io.IOException;
 import java.text.ParseException;
 
-import controller.Menu;
+import controller.MenuController;
+import model.DataBase;
 
 public class Main {
 
 	public static void main(String[] args) throws NumberFormatException, ParseException, IOException {
 		// TODO Auto-generated method stub
-		LoadUserData ld = new LoadUserData();
+		IOUserData ld = new IOUserData();
 		ld.loadUsers();
-		LoadAnalysisRequest lar = new LoadAnalysisRequest();
+		IOAnalysisRequest lar = new IOAnalysisRequest();
 		lar.loadAnalysisRequests();
-		Menu menu = new Menu();
+		
+		System.out.println(DataBase.analysisRequests.get(0).toString());
+		
+		
+		MenuController menu = new MenuController();
 		menu.start();
-		
-		
-		
-		
 		
 		
 	}

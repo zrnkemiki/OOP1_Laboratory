@@ -3,30 +3,23 @@ package io_Stream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
 
-import model.AnalysisRequest;
+import model.Appointment;
 import model.CollectionType;
 import model.DataBase;
-import model.StrucnaSprema;
-import model.User;
-import model.UserType;
 
-public class LoadAnalysisRequest {
+public class IOAnalysisRequest {
 	
 	static BufferedReader buff;
 	static BufferedWriter bw;
 	static FileWriter fw;
 
-	public LoadAnalysisRequest() {
+	public IOAnalysisRequest() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -40,10 +33,10 @@ public class LoadAnalysisRequest {
 				s = s.trim();
 				String[] tokens = s.split("\\|");
 				if (tokens.length == 6) {
-					AnalysisRequest ar = new AnalysisRequest();
+					Appointment ar = new Appointment();
 					ar.setId(Long.valueOf(tokens[0]));
 					ar.setLBO(tokens[1]);
-					ar.setDate(new SimpleDateFormat("yyyy-MM-dd").parse(tokens[2]));
+					ar.setDate(LocalDate.parse(tokens[2]));
 					ar.setCollectionType(CollectionType.valueOf(tokens[3]));
 					ar.setStatus(tokens[4]);
 					ar.setAnalysisId(Long.valueOf(tokens[5]));
@@ -59,7 +52,7 @@ public class LoadAnalysisRequest {
 	
 	public static void updateAnalysisRequests() {
 		String sadrzaj = "";
-		for (AnalysisRequest ar : DataBase.analysisRequests) {
+		for (Appointment ar : DataBase.analysisRequests) {
 			sadrzaj += ar.toString() + "\n";
 
 		}

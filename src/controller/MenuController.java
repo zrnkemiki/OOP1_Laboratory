@@ -7,7 +7,7 @@ import model.DataBase;
 import model.User;
 import model.UserType;
 
-public class Menu {
+public class MenuController {
 
 	public void start() {
 		User user = new User();
@@ -66,7 +66,7 @@ public class Menu {
 				System.out.println("0) Izlazak iz programa");
 				input = chooseMenuOption(2, true);	
 			case 3:
-				Termin t = new Termin();
+				AppointmentController t = new AppointmentController();
 				t.zakazivanjeTermina(user);
 				break;
 			case 0:

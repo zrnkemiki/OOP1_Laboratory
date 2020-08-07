@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class User {
 	private List<Integer> analizeId;
 	private StrucnaSprema strucnaSprema;
 	private List<String> specijalizacije;
-	private Date pocetakRadnogOdnosa;
+	private LocalDate pocetakRadnogOdnosa;
 
 	public User() {
 		super();
@@ -31,7 +32,7 @@ public class User {
 
 	public User(String firstName, String lastName, String email, String password, String lBO, String sex,
 			Date dateOfBirth, String adress, String phoneNumber, UserType userType, List<Integer> analizeId,
-			StrucnaSprema strucnaSprema, List<String> specijalizacije, Date pocetakRadnogOdnosa) {
+			StrucnaSprema strucnaSprema, List<String> specijalizacije, LocalDate pocetakRadnogOdnosa) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -217,13 +218,13 @@ public class User {
 
 
 
-	public Date getPocetakRadnogOdnosa() {
+	public LocalDate getPocetakRadnogOdnosa() {
 		return pocetakRadnogOdnosa;
 	}
 
 
 
-	public void setPocetakRadnogOdnosa(Date pocetakRadnogOdnosa) {
+	public void setPocetakRadnogOdnosa(LocalDate pocetakRadnogOdnosa) {
 		this.pocetakRadnogOdnosa = pocetakRadnogOdnosa;
 	}
 

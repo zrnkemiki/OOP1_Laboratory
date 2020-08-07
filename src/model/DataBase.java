@@ -7,6 +7,6 @@ public class DataBase {
 	
 	public static HashMap<String,User> users=new HashMap<String,User>();
 	
-	public static ArrayList<AnalysisRequest> analysisRequests = new ArrayList<>();
+	public static ArrayList<Appointment> analysisRequests = new ArrayList<>();
 
 }
