@@ -1,3 +1,3 @@
-Milos|Zrnic|zrnkemiki@gmail.com|miki|1111|m|1995-09-11|Marka Celebonovica 1|0651234|ADMINISTRATOR|1;|SSS_8|2009-01-12
+Milos|Zrnic|z|miki|1111|m|1995-09-11|Marka Celebonovica 1|0651234|ADMINISTRATOR|1;|SSS_8|2009-01-12
 Marko|Zrnic|zrnkemarko@gmail.com|marko|2222|m|2008-09-11|Marka Celebonovica 1|0653214|PACIJENT|2;3
 Petar|Petrovic|pera@gmail.com|petar|3333|m|1979-09-11|Marka Petrovica 1|0632134|LABORANT||SSS_6|hematologija?reumatologija|2017-05-20
