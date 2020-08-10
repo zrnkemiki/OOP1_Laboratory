@@ -42,4 +42,21 @@ public class IOHandler {
 		return date;
 	}
 
+	public static String stringInput() {
+		String unos;
+		String output;
+		while(true)
+		{
+			unos = input.nextLine();
+			try {
+				output = unos;
+				break;
+			} catch(Exception e) {
+				System.out.println("Format not valid!");
+			}
+		}
+		return output;
+	}
+
+
 }

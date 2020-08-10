@@ -1,13 +1,14 @@
 package io_Stream;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,11 @@ import model.User;
 import model.UserType;
 
 public class IOUserData {
+	
+	static BufferedReader buff;
+	static BufferedWriter bw;
+	static FileWriter fw;
+	
 	private List<User> users;
 
 	public IOUserData() {
@@ -41,14 +47,14 @@ public class IOUserData {
 					u.setPassword(tokens[3]);
 					u.setLBO(tokens[4]);
 					u.setSex(tokens[5]);
-					u.setDateOfBirth(new SimpleDateFormat("yyyy-MM-dd").parse(tokens[6]));
+					u.setDateOfBirth(LocalDate.parse(tokens[6]));
 					u.setAdress(tokens[7]);
 					u.setPhoneNumber(tokens[8]);
 					u.setUserType(UserType.valueOf(tokens[9]));
-					String[] analize = tokens[10].split("\\;");
+					String[] analize = tokens[10].split("\\,");
 					ArrayList<Integer> analizeID = new ArrayList<>();
 					for (int i = 0; i < analize.length; i++) {
-						analizeID.add(Integer.parseInt(analize[i]));
+						analizeID.add(Integer.parseInt(analize[i].trim()));
 					}
 					u.setAnalizeId(analizeID);
 					DataBase.users.put(u.getLBO(), u);
@@ -60,15 +66,15 @@ public class IOUserData {
 					u.setPassword(tokens[3]);
 					u.setLBO(tokens[4]);
 					u.setSex(tokens[5]);
-					u.setDateOfBirth(new SimpleDateFormat("yyyy-MM-dd").parse(tokens[6]));
+					u.setDateOfBirth(LocalDate.parse(tokens[6]));
 					u.setAdress(tokens[7]);
 					u.setPhoneNumber(tokens[8]);
 					u.setUserType(UserType.valueOf(tokens[9]));
 					try {
-						String[] analize = tokens[10].split("\\;");
+						String[] analize = tokens[10].split("\\,");
 						ArrayList<Integer> analizeID = new ArrayList<>();
 						for (int i = 0; i < analize.length; i++) {
-							analizeID.add(Integer.parseInt(analize[i]));
+							analizeID.add(Integer.parseInt(analize[i].trim()));
 						}
 						u.setAnalizeId(analizeID);
 					} catch (Exception e) {
@@ -93,15 +99,46 @@ public class IOUserData {
 					u.setPassword(tokens[3]);
 					u.setLBO(tokens[4]);
 					u.setSex(tokens[5]);
-					u.setDateOfBirth(new SimpleDateFormat("yyyy-MM-dd").parse(tokens[6]));
+					u.setDateOfBirth(LocalDate.parse(tokens[6]));
 					u.setAdress(tokens[7]);
 					u.setPhoneNumber(tokens[8]);
 					u.setUserType(UserType.valueOf(tokens[9]));
 					try {
-						String[] analize = tokens[10].split("\\;");
+						tokens[9].trim();
+						String[] analize = tokens[10].split("\\,");
 						ArrayList<Integer> analizeID = new ArrayList<>();
 						for (int i = 0; i < analize.length; i++) {
-							analizeID.add(Integer.parseInt(analize[i]));
+							analizeID.add(Integer.parseInt(analize[i].trim()));
+						}
+						u.setAnalizeId(analizeID);
+					} catch (Exception e) {
+					}
+
+					u.setStrucnaSprema(StrucnaSprema.valueOf(tokens[11]));
+
+					u.setPocetakRadnogOdnosa(LocalDate.parse(tokens[12]));
+					// To-Do Specijalizacije
+					// u.setSpecijalizacije(specijalizacije);
+					DataBase.users.put(u.getLBO(), u);
+
+				}
+				else if (tokens[9].equals("MEDICINSKI_TEHNICAR")) {
+					User u = new User();
+					u.setFirstName(tokens[0]);
+					u.setLastName(tokens[1]);
+					u.setEmail(tokens[2]);
+					u.setPassword(tokens[3]);
+					u.setLBO(tokens[4]);
+					u.setSex(tokens[5]);
+					u.setDateOfBirth(LocalDate.parse(tokens[6]));
+					u.setAdress(tokens[7]);
+					u.setPhoneNumber(tokens[8]);
+					u.setUserType(UserType.valueOf(tokens[9]));
+					try {
+						String[] analize = tokens[10].split("\\,");
+						ArrayList<Integer> analizeID = new ArrayList<>();
+						for (int i = 0; i < analize.length; i++) {
+							analizeID.add(Integer.parseInt(analize[i].trim()));
 						}
 						u.setAnalizeId(analizeID);
 					} catch (Exception e) {
@@ -126,4 +163,30 @@ public class IOUserData {
 		}
 		return users;
 	}
+	
+	public void updateUsers() {
+		String sadrzaj = "";
+		for (User u : DataBase.users.values()) {
+			System.out.println(u);
+			if(u.getAnalizeId() == null) {
+				u.setAnalizeId(new ArrayList<Integer>());
+			}
+			System.out.println(u);
+			sadrzaj += u.toString().replace("|null|", "|").replace("[", "").replace("]", "").replace("|null", "") + "\n";
+
+		}
+		try {
+			fw = new FileWriter("src/Data/users.txt");
+			bw = new BufferedWriter(fw);
+			bw.write(sadrzaj);
+			bw.close();
+			System.out.println("Ukoliko je bilo izmena, fajl je izmenjen.");
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+
 }

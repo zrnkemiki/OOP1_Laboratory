@@ -14,16 +14,13 @@ public class Main {
 		ld.loadUsers();
 		IOAnalysisRequest lar = new IOAnalysisRequest();
 		lar.loadAnalysisRequests();
-		
+
 		System.out.println(DataBase.analysisRequests.get(0).toString());
-		
-		
+		IOUserData iouser = new IOUserData();
+		iouser.updateUsers();
 		MenuController menu = new MenuController();
 		menu.start();
-		
-		
+
 	}
-	
-	
 
 }

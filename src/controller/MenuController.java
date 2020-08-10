@@ -76,16 +76,37 @@ public class MenuController {
 				break;
 			}
 		}
+		else if (user.getUserType() == UserType.MEDICINSKI_TEHNICAR) {
+			System.out.println("-------------------------------------\n");
+			System.out.println("1) Registracija pacijenta.");
+			System.out.println("2) Pregled analiza.");
+			System.out.println("3) Zakazivanje termina za pacijenta");
+			System.out.println("0) Odjavljivanje.");
+			input = chooseMenuOption(4, true);
+			switch (input) {
+			case 1:
+				System.out.println("------------------------");
+				System.out.println("Registracija novog pacijenta:");
+				UserController uc = new UserController();
+				uc.createUser();
+			case 2:
+				System.out.println("-------------------------------------\n");
+				System.out.println("1) TO-DO Pregled analiza");
+				System.out.println("0) Izlazak iz programa");
+				input = chooseMenuOption(2, true);	
+			case 3:
+				AppointmentController t = new AppointmentController();
+				t.zakazivanjeTermina(user);
+				break;
+			case 0:
+				System.out.println("Uspesno ste se izlogovali. \n");
+				user = null;
+				start();
+				break;
+			}
+		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	public static int chooseMenuOption(int range, boolean saNulom) {

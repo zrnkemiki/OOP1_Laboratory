@@ -1,3 +1,4 @@
-Milos|Zrnic|milos|milos|1111|m|1995-09-11|Marka Celebonovica 1|0651234|ADMINISTRATOR|1;|SSS_8|2009-01-12
-Marko|Zrnic|marko|marko|2222|m|2008-09-11|Marka Celebonovica 1|0653214|PACIJENT|2;3
-Petar|Petrovic|petar|petar|3333|m|1979-09-11|Marka Petrovica 1|0632134|LABORANT||SSS_6|hematologija?reumatologija|2017-05-20
+marko|zrnic|marko|marko|123412|m|2008-04-07|marka celebonovica|01231231|LABORANT||SSS_6|first, second|2020-05-05|
+Milos|Zrnic|milos|milos|1111|m|1995-09-11|Marka Celebonovica 1|0651234|PACIJENT|3, 4|
+Petar|Petrovic|petar|petar|2222|m|1979-09-11|Marka Petrovica 1|0632134|MEDICINSKI_TEHNICAR||SSS_4|2017-05-20|
+Irena|Irena|irena|irena|3333|m|1979-09-11|Marka Petrovica 1|0632134|LABORANT||SSS_6|prva, druga, treca|2017-05-20|
