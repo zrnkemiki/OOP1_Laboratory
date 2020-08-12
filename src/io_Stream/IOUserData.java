@@ -154,6 +154,8 @@ public class IOUserData {
 				}
 
 			}
+
+			in.close();
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

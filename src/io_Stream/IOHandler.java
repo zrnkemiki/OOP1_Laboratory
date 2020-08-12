@@ -1,8 +1,9 @@
 package io_Stream;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Scanner;
+
+import model.DataBase;
 
 public class IOHandler {
 	
@@ -56,6 +57,33 @@ public class IOHandler {
 			}
 		}
 		return output;
+	}
+
+	public static String lboInput() {
+		String unos;
+		String lbo = "";
+		boolean temp = true;
+		while(temp)
+		{
+			unos = input.nextLine();
+			try {
+				if(unos.length()!= 6) {
+					System.out.println("LBO must contain 6 characters. Try other one:");
+					temp = true;
+				}
+				else if(DataBase.users.containsKey(unos)) {
+					System.out.println("LBO already exists. Try other one:");
+					temp = true;
+				}
+				else{
+					lbo = unos;
+					break;
+				}
+			} catch(Exception e) {
+				System.out.println("Format not valid!");
+			}
+		}
+		return lbo;
 	}
 
 

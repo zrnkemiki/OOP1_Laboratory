@@ -1,6 +1,5 @@
 package controller;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 import io_Stream.IOHandler;
@@ -28,7 +27,7 @@ public class UserController {
 		u.setEmail(IOHandler.stringInput());
 		u.setPassword(u.getFirstName().toLowerCase());
 		System.out.println("Unesite korisnikov LBO");
-		u.setLBO(IOHandler.stringInput());
+		u.setLBO(IOHandler.lboInput());
 		System.out.println("Unesite pol korisnika: M/F ");
 		String sex = IOHandler.stringInput();
 		if(sex.toLowerCase().equals("m")) {
@@ -44,9 +43,7 @@ public class UserController {
 		System.out.println("Unesite broj telefona: ");
 		u.setPhoneNumber(IOHandler.stringInput());
 		System.out.println("Tip korisnika:");
-		System.out.println("1. Pacijent");
-		System.out.println("2. Laborant");
-		System.out.println("3. Med.tehnicar");
+		System.out.println("1. Pacijent\n2. Laborant \n3. Medicinski tehnicar");
 		
 		int input = MenuController.chooseMenuOption(3, true);
 		if(input == 1) {
