@@ -2,14 +2,21 @@ package io_Stream;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Random;
 
 import controller.MenuController;
+import model.BiochemistryAnalysis;
 import model.DataBase;
 
 public class Main {
 
 	public static void main(String[] args) throws NumberFormatException, ParseException, IOException {
 		// TODO Auto-generated method stub
+		BiochemistryAnalysis ba = new BiochemistryAnalysis();
+		ba.biochemistryAnalysisGenerator();
+		System.out.println(ba.toString());
+		
+		
 		IOUserData ld = new IOUserData();
 		ld.loadUsers();
 		IOAnalysisRequest lar = new IOAnalysisRequest();

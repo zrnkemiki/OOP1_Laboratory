@@ -1,12 +1,12 @@
 package model;
 
-import java.util.List;
+import java.time.LocalDate;
 
-public class Analysis {
+public abstract class Analysis {
 
 	private long id;
 	private int price;
 	private String status;
-	private List<AnalysisType> analsysType; 
+	private LocalDate date;
 
 }
