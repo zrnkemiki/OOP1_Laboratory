@@ -1,8 +1,9 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.Random;
 
-public class BiochemistryAnalysis {
+public class BiochemistryAnalysis extends Analysis {
 	private double glucose;
 	private String glucose_ReferenceValue;
 	private double urea;
@@ -21,15 +22,13 @@ public class BiochemistryAnalysis {
 	private String HDL_ReferenceValue;
 	private double iron;
 	private String iron_ReferenceValue;
-	
-	
+
 	public BiochemistryAnalysis() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	
-	
-	public void biochemistryAnalysisGenerator() {
+
+	@Override
+	public void generateAnalysis() {
 		Random r = new Random();
 		this.glucose = 3.0 + (8.0 - 3.0) * r.nextDouble();
 		this.glucose_ReferenceValue = "3.9 - 6.1";
@@ -49,201 +48,169 @@ public class BiochemistryAnalysis {
 		this.HDL_ReferenceValue = " > 1.04";
 		this.iron = 5.0 + (39.0 - 5.0) * r.nextDouble();
 		this.iron_ReferenceValue = "5.8 - 34.5";
-		
-	}
+		this.setPrice(1000);
+		this.setStatus("Done");
+		this.setDate(LocalDate.now());
 
+	}
 
 	public double getGlucose() {
 		return glucose;
 	}
 
-
 	public void setGlucose(double glucose) {
 		this.glucose = glucose;
 	}
-
 
 	public String getGlucose_ReferenceValue() {
 		return glucose_ReferenceValue;
 	}
 
-
 	public void setGlucose_ReferenceValue(String glucose_ReferenceValue) {
 		this.glucose_ReferenceValue = glucose_ReferenceValue;
 	}
-
 
 	public double getUrea() {
 		return urea;
 	}
 
-
 	public void setUrea(double urea) {
 		this.urea = urea;
 	}
-
 
 	public String getUrea_ReferenceValue() {
 		return urea_ReferenceValue;
 	}
 
-
 	public void setUrea_ReferenceValue(String urea_ReferenceValue) {
 		this.urea_ReferenceValue = urea_ReferenceValue;
 	}
-
 
 	public double getCreatinine() {
 		return creatinine;
 	}
 
-
 	public void setCreatinine(double creatinine) {
 		this.creatinine = creatinine;
 	}
-
 
 	public String getCreatinine_ReferenceValue() {
 		return creatinine_ReferenceValue;
 	}
 
-
 	public void setCreatinine_ReferenceValue(String creatinine_ReferenceValue) {
 		this.creatinine_ReferenceValue = creatinine_ReferenceValue;
 	}
-
 
 	public double getBilirubin() {
 		return bilirubin;
 	}
 
-
 	public void setBilirubin(double bilirubin) {
 		this.bilirubin = bilirubin;
 	}
-
 
 	public String getBilirubin_ReferenceValue() {
 		return bilirubin_ReferenceValue;
 	}
 
-
 	public void setBilirubin_ReferenceValue(String bilirubin_ReferenceValue) {
 		this.bilirubin_ReferenceValue = bilirubin_ReferenceValue;
 	}
-
 
 	public double getAST() {
 		return AST;
 	}
 
-
 	public void setAST(double aST) {
 		AST = aST;
 	}
-
 
 	public String getAST_ReferenceValue() {
 		return AST_ReferenceValue;
 	}
 
-
 	public void setAST_ReferenceValue(String aST_ReferenceValue) {
 		AST_ReferenceValue = aST_ReferenceValue;
 	}
-
 
 	public double getALT() {
 		return ALT;
 	}
 
-
 	public void setALT(double aLT) {
 		ALT = aLT;
 	}
-
 
 	public String getALT_ReferenceValue() {
 		return ALT_ReferenceValue;
 	}
 
-
 	public void setALT_ReferenceValue(String aLT_ReferenceValue) {
 		ALT_ReferenceValue = aLT_ReferenceValue;
 	}
-
 
 	public double getCholesterol() {
 		return cholesterol;
 	}
 
-
 	public void setCholesterol(double cholesterol) {
 		this.cholesterol = cholesterol;
 	}
-
 
 	public String getCholesterol_ReferenceValue() {
 		return cholesterol_ReferenceValue;
 	}
 
-
 	public void setCholesterol_ReferenceValue(String cholesterol_ReferenceValue) {
 		this.cholesterol_ReferenceValue = cholesterol_ReferenceValue;
 	}
-
 
 	public double getHDL() {
 		return HDL;
 	}
 
-
 	public void setHDL(double hDL) {
 		HDL = hDL;
 	}
-
 
 	public String getHDL_ReferenceValue() {
 		return HDL_ReferenceValue;
 	}
 
-
 	public void setHDL_ReferenceValue(String hDL_ReferenceValue) {
 		HDL_ReferenceValue = hDL_ReferenceValue;
 	}
-
 
 	public double getIron() {
 		return iron;
 	}
 
-
 	public void setIron(double iron) {
 		this.iron = iron;
 	}
-
 
 	public String getIron_ReferenceValue() {
 		return iron_ReferenceValue;
 	}
 
-
 	public void setIron_ReferenceValue(String iron_ReferenceValue) {
 		this.iron_ReferenceValue = iron_ReferenceValue;
 	}
 
-
 	@Override
 	public String toString() {
-		return "BiochemistryAnalysis [glucose=" + glucose + ", glucose_ReferenceValue=" + glucose_ReferenceValue
-				+ ", urea=" + urea + ", urea_ReferenceValue=" + urea_ReferenceValue + ", creatinine=" + creatinine
-				+ ", creatinine_ReferenceValue=" + creatinine_ReferenceValue + ", bilirubin=" + bilirubin
-				+ ", bilirubin_ReferenceValue=" + bilirubin_ReferenceValue + ", AST=" + AST + ", AST_ReferenceValue="
-				+ AST_ReferenceValue + ", ALT=" + ALT + ", ALT_ReferenceValue=" + ALT_ReferenceValue + ", cholesterol="
-				+ cholesterol + ", cholesterol_ReferenceValue=" + cholesterol_ReferenceValue + ", HDL=" + HDL
-				+ ", HDL_ReferenceValue=" + HDL_ReferenceValue + ", iron=" + iron + ", iron_ReferenceValue="
-				+ iron_ReferenceValue + "]";
+		return "BiochemistryAnalysis|" + glucose + "|" + glucose_ReferenceValue
+				+ "|" + urea + "|" + urea_ReferenceValue + "|" + creatinine
+				+ "|" + creatinine_ReferenceValue + "|" + bilirubin
+				+ "|" + bilirubin_ReferenceValue + "|" + AST + "|"
+				+ AST_ReferenceValue + "|" + ALT + "|" + ALT_ReferenceValue + "|"
+				+ cholesterol + "|" + cholesterol_ReferenceValue + "|" + HDL
+				+ "|" + HDL_ReferenceValue + "|" + iron + "|"
+				+ iron_ReferenceValue + "|" + getPrice() + "|" + getStatus() + "|"
+				+ getDate() + "|" + getLbo();
 	}
+
 	
-	
+
 }

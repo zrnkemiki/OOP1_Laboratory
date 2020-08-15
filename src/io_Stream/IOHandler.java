@@ -59,7 +59,7 @@ public class IOHandler {
 		return output;
 	}
 
-	public static String lboInput() {
+	public static String newLboInput() {
 		String unos;
 		String lbo = "";
 		boolean temp = true;
@@ -68,11 +68,11 @@ public class IOHandler {
 			unos = input.nextLine();
 			try {
 				if(unos.length()!= 6) {
-					System.out.println("LBO must contain 6 characters. Try other one:");
+					System.out.println("LBO mora da sadrzi 6 cifara. Pokusajte ponovo:");
 					temp = true;
 				}
 				else if(DataBase.users.containsKey(unos)) {
-					System.out.println("LBO already exists. Try other one:");
+					System.out.println("LBO ne postoji. Pokusajte ponovo:");
 					temp = true;
 				}
 				else{
@@ -80,7 +80,34 @@ public class IOHandler {
 					break;
 				}
 			} catch(Exception e) {
-				System.out.println("Format not valid!");
+				System.out.println("Format nije validan!");
+			}
+		}
+		return lbo;
+	}
+	
+	public static String existingLboInput() {
+		String unos;
+		String lbo = "";
+		boolean temp = true;
+		while(temp)
+		{
+			unos = input.nextLine();
+			try {
+				if(unos.length()!= 6) {
+					System.out.println("LBO mora da sadrzi 6 cifara. Pokusajte ponovo:");
+					temp = true;
+				}
+				else if(!DataBase.users.containsKey(unos)) {
+					System.out.println("LBO ne postoji. Pokusajte ponovo:");
+					temp = true;
+				}
+				else{
+					lbo = unos;
+					break;
+				}
+			} catch(Exception e) {
+				System.out.println("Format nije validan!");
 			}
 		}
 		return lbo;

@@ -27,7 +27,7 @@ public class UserController {
 		u.setEmail(IOHandler.stringInput());
 		u.setPassword(u.getFirstName().toLowerCase());
 		System.out.println("Unesite korisnikov LBO");
-		u.setLBO(IOHandler.lboInput());
+		u.setLBO(IOHandler.newLboInput());
 		System.out.println("Unesite pol korisnika: M/F ");
 		String sex = IOHandler.stringInput();
 		if(sex.toLowerCase().equals("m")) {

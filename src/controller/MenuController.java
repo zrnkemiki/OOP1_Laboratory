@@ -38,7 +38,7 @@ public class MenuController {
 				System.out.println("6) ");
 				System.out.println("0) Izlazak iz programa");
 				input = chooseMenuOption(7, true);
-				
+				break;
 			case 0:
 				System.out.println("Uspesno ste se izlogovali. \n");
 				user = null;
@@ -46,7 +46,7 @@ public class MenuController {
 				break;
 			}
 		}
-		
+
 		else if (user.getUserType() == UserType.PACIJENT) {
 			System.out.println("-------------------------------------\n");
 			System.out.println("1) Pregled profila.");
@@ -60,11 +60,13 @@ public class MenuController {
 				System.out.println("1) Menu 1");
 				System.out.println("0) Izlazak iz programa");
 				input = chooseMenuOption(2, true);
+				break;
 			case 2:
 				System.out.println("-------------------------------------\n");
 				System.out.println("1) TO-DO Pregled analiza");
 				System.out.println("0) Izlazak iz programa");
-				input = chooseMenuOption(2, true);	
+				input = chooseMenuOption(2, true);
+				break;
 			case 3:
 				AppointmentController t = new AppointmentController();
 				t.zakazivanjeTermina(user);
@@ -75,8 +77,7 @@ public class MenuController {
 				start();
 				break;
 			}
-		}
-		else if (user.getUserType() == UserType.MEDICINSKI_TEHNICAR) {
+		} else if (user.getUserType() == UserType.MEDICINSKI_TEHNICAR) {
 			System.out.println("-------------------------------------\n");
 			System.out.println("1) Registracija pacijenta.");
 			System.out.println("2) Pregled analiza.");
@@ -89,11 +90,13 @@ public class MenuController {
 				System.out.println("Registracija novog pacijenta:");
 				UserController uc = new UserController();
 				uc.createUser();
+				break;
 			case 2:
 				System.out.println("-------------------------------------\n");
 				System.out.println("1) TO-DO Pregled analiza");
 				System.out.println("0) Izlazak iz programa");
-				input = chooseMenuOption(2, true);	
+				input = chooseMenuOption(2, true);
+				break;
 			case 3:
 				AppointmentController t = new AppointmentController();
 				t.zakazivanjeTermina(user);
@@ -104,11 +107,35 @@ public class MenuController {
 				start();
 				break;
 			}
+		} 
+		else if (user.getUserType() == UserType.LABORANT) {
+			System.out.println("-------------------------------------\n");
+			System.out.println("1) Nova analiza.");
+			System.out.println("2) Pregled analiza.");
+			System.out.println("0) Odjavljivanje.");
+			input = chooseMenuOption(2, true);
+			switch (input) {
+			case 1:
+				System.out.println("------------------------");
+				AnalysisController ac = new AnalysisController();
+				ac.createAnalysis();
+				System.out.println(DataBase.allAnalysis.keySet());
+				break;
+			case 2:
+				System.out.println("-------------------------------------\n");
+				System.out.println("1) TO-DO Pregled analiza");
+				System.out.println("0) Izlazak iz programa");
+				input = chooseMenuOption(2, true);
+				break;
+			case 0:
+				System.out.println("Uspesno ste se izlogovali. \n");
+				user = null;
+				start();
+				break;
+			}
 		}
 	}
 
-	
-	
 	public static int chooseMenuOption(int range, boolean saNulom) {
 		int izbor = -1;
 		int unetiBroj;

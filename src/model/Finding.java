@@ -7,5 +7,5 @@ public class Finding {
 	private String LBO;
 	private int price;
 	
-	private List<AnalysisType> analsysType; 
+	private List<AnalysisType> analysisType; 
 }

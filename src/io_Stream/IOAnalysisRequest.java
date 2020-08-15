@@ -44,6 +44,7 @@ public class IOAnalysisRequest {
 					System.out.println(ar.toString());
 			}
 			}
+			in.close();
 		}
 		catch (Exception e) {
 			// TODO: handle exception
