@@ -10,13 +10,8 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import com.sun.accessibility.internal.resources.accessibility;
-
-import javafx.scene.chart.PieChart.Data;
 import model.Analysis;
-import model.Appointment;
 import model.BiochemistryAnalysis;
-import model.CollectionType;
 import model.DataBase;
 import model.HematologicalAnalysis;
 import model.HormonesAnalysis;

@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public abstract class Analysis {
 
-	private long id;
 	private int price;
 	private String status;
 	private LocalDate date;
@@ -12,12 +11,6 @@ public abstract class Analysis {
 	
 	public abstract void generateAnalysis();
 	
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
 	public int getPrice() {
 		return price;
 	}
