@@ -252,8 +252,24 @@ public class HematologicalAnalysis extends Analysis {
 
 	@Override
 	public String stringFileExport() {
-		// TODO Auto-generated method stub
-		return null;
+		return "HematologicalAnalysis\n" + "---------------------------------------------------\n"
+				+ "PARAMETAR  | VREDNOST | MIN - MAX | JEDINICA MERE \n" + 
+				"WhiteB.Cells|"	+ String.format("%.2f", whiteBloodCells) + "|" + whiteBloodCells_referenceValue + "\n" + 
+				"RedB.Cells  |"	+ String.format("%.2f", redBloodCells) + "|" + redBloodCells_referenceValue + "\n" + 
+				"Hemoglobin  |" + String.format("%.2f", hemoglobin) + "|" + hemoglobin_referenceValue + "n" + 
+				"Hematocrit  |"	+ String.format("%.2f", hematocrit) + "|" + hematocrite_referenceValue + "\n" + 
+				"MCV         |" + String.format("%.2f", MCV) + "|" + MCV_referenceValue + "\n" + 
+				"MCH         |"	+ String.format("%.2f", MCH) + "|" + MCH_referenceValue + "|" + 
+				"MCHC        |" + String.format("%.2f", MCHC) + "|" + MCHC_refenceValue + "\n" +
+				"Platelet    |" + String.format("%.2f", platelet) + "|" + platelet_referenceValue + "\n" + 
+				"Lymphocytes |" + String.format("%.2f", lymphocytes) + "|" + lymphocytes_referenceValue + "\n" +
+				"Monocytes   |" + String.format("%.2f", monocytes) + "|" + monocytes_referenceValue + "\n" + 
+				"Sed. rate   |" + String.format("%.2f", sedimentationRate) + "|" + sedimentationRate_referenceValue + "\n" +
+				"----------------------------------------------------\n" +
+				"Price      | " + getPrice()  + "RSD \n" +
+				"Status     | " + getStatus()  + "\n" +
+				"Date       | "	+ getDate()  + "\n" +
+				"LBO        | " + getLbo();
 	}
 
 }

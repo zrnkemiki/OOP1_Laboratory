@@ -2,6 +2,8 @@ package controller;
 
 import java.util.ArrayList;
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
+
 import io_Stream.IOAnalysis;
 import io_Stream.IOHandler;
 import model.Analysis;
@@ -57,11 +59,28 @@ public class AnalysisController {
 			System.out.println("Pacijent nije imao karton. Novi karton je napravljen i analiza dodata.");
 		}
 	}
-	
-	
 
-	public void loadAnalysis() {
+	public void getAnalysisByLBO(String LBO) {
+		ArrayList<Analysis> a = DataBase.allAnalysis.get(LBO);
+		exportAnalysis(a);
+	}
 
+	public void exportAnalysis(ArrayList<Analysis> a) {
+		for (int i = 0; i < a.size(); i++) {
+			if (a.get(i) instanceof BiochemistryAnalysis) {
+				System.out.println(i + 1 + ") Biohemijska analiza radjena dana " + a.get(i).getDate());
+			}
+			else if (a.get(i) instanceof HormonesAnalysis) {
+				System.out.println(i + 1 + ") Hormonska analiza radjena dana " + a.get(i).getDate());
+			}
+			else if (a.get(i) instanceof HormonesAnalysis) {
+				System.out.println(i + 1 + ") Hematoloska analiza radjena dana " + a.get(i).getDate());
+			}
+		}
+		System.out.println("Izaberite nalaz koji zelite da eksportujete:");
+		IOAnalysis ioa = new IOAnalysis();
+		int id = IOHandler.intInput();
+		ioa.createFile(a.get(id-1));
 	}
 
 }

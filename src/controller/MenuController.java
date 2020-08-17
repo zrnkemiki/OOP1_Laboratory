@@ -1,8 +1,10 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import io_Stream.IOHandler;
+import model.Analysis;
 import model.DataBase;
 import model.User;
 import model.UserType;
@@ -62,10 +64,9 @@ public class MenuController {
 				input = chooseMenuOption(2, true);
 				break;
 			case 2:
-				System.out.println("-------------------------------------\n");
-				System.out.println("1) TO-DO Pregled analiza");
-				System.out.println("0) Izlazak iz programa");
-				input = chooseMenuOption(2, true);
+				AnalysisController ac = new AnalysisController();
+				ac.getAnalysisByLBO(user.getLBO());
+				
 				break;
 			case 3:
 				AppointmentController t = new AppointmentController();

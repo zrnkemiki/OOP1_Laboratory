@@ -99,17 +99,28 @@ public class HormonesAnalysis extends Analysis {
 		TSH_referenceValue = tSH_referenceValue;
 	}
 
+
+	public String stringFileExport() {
+		return "HormonesAnalysis\n" + 
+				"---------------------------------------------------\n" +
+				"PARAMETAR   | VREDNOST | MIN - MAX   | JEDINICA MERE \n" + 
+				"FSH         | " + String.format("%.2f",FSH) + "     |" + FSH_referenceValue + "\n" + 
+				"LH          | "  + String.format("%.2f",	LH) + "     |" + LH_referenceValue + "\n" +
+				"Testosterone| " + String.format("%.2f",testosterone)	+ "    |" + testosterone_referenceValue + "\n" + 
+				"TSH         | " + String.format("%.2f",TSH)	+ "     |" + TSH_referenceValue + "\n" +
+				"----------------------------------------------------\n" +
+				"Price      | " + getPrice()  + "RSD \n" +
+				"Status     | " + getStatus()  + "\n" +
+				"Date       | "	+ getDate()  + "\n" +
+				"LBO        | " + getLbo();
+	}
+	
 	@Override
 	public String toString() {
 		return "HormonesAnalysis|" + FSH + "|" + FSH_referenceValue + "|" + LH + "|" + LH_referenceValue + "|"
 				+ testosterone + "|" + testosterone_referenceValue + "|" + TSH + "|" + TSH_referenceValue + "|"
 				+ getPrice() + "|" + getStatus() + "|" + getDate() + "|" + getLbo();
 	}
-
-	@Override
-	public String stringFileExport() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

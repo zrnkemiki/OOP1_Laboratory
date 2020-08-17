@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public abstract class Analysis {
 
+	
 	private int price;
 	private String status;
 	private LocalDate date;

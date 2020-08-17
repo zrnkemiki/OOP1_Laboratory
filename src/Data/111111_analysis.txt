@@ -1,15 +1,15 @@
 BiochemistryAnalysis
 ---------------------------------------------------
 PARAMETAR  | VREDNOST | MIN - MAX | JEDINICA MERE 
-GLUCOSE    | 5.67     | 3.9 - 6.1
-UREA       | 4.99     | 2.8 - 8.1
-creatinine | 106.18   | 62 - 106
-Bilirubin  | 26.74    | < 21.00
-AST        | 25.22    |  < 40.00
-ALT        | 48.78    |  < 41.00
-Cholesterol| 8.16     | 3.90 - 6.20
-HDL        | 2.22     |  > 1.04
-Iron       | 32.43    | 5.8 - 34.5
+GLUCOSE    | 6.21     | 3.9 - 6.1
+UREA       | 7.20     | 2.8 - 8.1
+creatinine | 103.47   | 62 - 106
+Bilirubin  | 22.07    |< 21.00
+AST        | 31.11    | < 40.00
+ALT        | 41.07    | < 41.00
+Cholesterol| 7.05     | 3.90 - 6.20
+HDL        | 2.24     |  > 1.04
+Iron       | 25.46    | 5.8 - 34.5
 
 ----------------------------------------------------
 Price      | 1000RSD 

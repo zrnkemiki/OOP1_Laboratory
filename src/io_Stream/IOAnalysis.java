@@ -148,7 +148,7 @@ public class IOAnalysis {
 			bw = new BufferedWriter(fw);
 			bw.write(sadrzaj);
 			bw.close();
-			System.out.println("Ukoliko je bilo izmena, fajl je izmenjen.");
+			System.out.println("Nalaz je eksportovan.");
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

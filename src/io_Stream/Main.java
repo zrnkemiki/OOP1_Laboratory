@@ -2,6 +2,7 @@ package io_Stream;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.UUID;
 
 import controller.MenuController;
 import model.BiochemistryAnalysis;
@@ -18,6 +19,10 @@ public class Main {
 		lar.loadAnalysisRequests();
 		IOAnalysis ioa = new IOAnalysis();
 		ioa.loadAnalysis();
+		
+		UUID uuid = UUID.randomUUID();
+        String randomUUIDString = uuid.toString();
+        System.out.println(randomUUIDString);
 		
 		//ioa.createFile(DataBase.allAnalysis.get("111111").get(0));
 		System.out.println(DataBase.allAnalysis.size());

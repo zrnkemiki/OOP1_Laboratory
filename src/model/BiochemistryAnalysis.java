@@ -220,7 +220,7 @@ public class BiochemistryAnalysis extends Analysis {
 				"GLUCOSE    | " + String.format("%.2f",glucose) + "     | " + glucose_ReferenceValue + "\n" +
 				"UREA       | " + String.format("%.2f",urea) + "     | " + urea_ReferenceValue + "\n" +
 				"creatinine | " + String.format("%.2f",creatinine) + "   | " + creatinine_ReferenceValue  + "\n" + 
-				"Bilirubin  | " + String.format("%.2f",bilirubin) +"    |"+ bilirubin_ReferenceValue  + "\n" + 
+				"Bilirubin  | " + String.format("%.2f",bilirubin) +"    | "+ bilirubin_ReferenceValue  + "\n" + 
 				"AST        | " + String.format("%.2f",AST) + "    | " + AST_ReferenceValue  + "\n" + 
 				"ALT        | " + String.format("%.2f",ALT) + "    | " + ALT_ReferenceValue  + "\n" +
 				"Cholesterol| " + String.format("%.2f",cholesterol) + "     | " + cholesterol_ReferenceValue  + "\n" +
