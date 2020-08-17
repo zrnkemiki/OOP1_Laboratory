@@ -78,13 +78,20 @@ public class Appointment {
 	}
 
 
-
-	
 	@Override
 	public String toString() {
 		return id + "|" + LBO + "|" + date + "|" + collectionType
 				+ "|" + status + "|" + analysisId;
 	}
+
+	
+	public String consoleView() {
+		return "Appointment_id: " + id + "| Patient LBO: " + LBO + " | Date requested: " + date + " |  CollectionType: " + collectionType
+				+ " | Current status: " + status;
+	}
+
+	
+	
 	
 	
 	

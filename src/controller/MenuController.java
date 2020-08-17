@@ -1,10 +1,8 @@
 package controller;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import io_Stream.IOHandler;
-import model.Analysis;
 import model.DataBase;
 import model.User;
 import model.UserType;
@@ -70,7 +68,7 @@ public class MenuController {
 				break;
 			case 3:
 				AppointmentController t = new AppointmentController();
-				t.zakazivanjeTermina(user);
+				t.makeAppointment(user);
 				break;
 			case 0:
 				System.out.println("Uspesno ste se izlogovali. \n");
@@ -81,10 +79,13 @@ public class MenuController {
 		} else if (user.getUserType() == UserType.MEDICINSKI_TEHNICAR) {
 			System.out.println("-------------------------------------\n");
 			System.out.println("1) Registracija pacijenta.");
-			System.out.println("2) Pregled analiza.");
+			System.out.println("2) Pregled analiza");
 			System.out.println("3) Zakazivanje termina za pacijenta");
-			System.out.println("0) Odjavljivanje.");
-			input = chooseMenuOption(4, true);
+			System.out.println("4) Pregled svih zakazanih termina");
+			System.out.println("5) Pregled danasnjih zakazanih termina");
+			System.out.println("0) Odjavljivanje");
+			input = chooseMenuOption(6, true);
+			AppointmentController a = new AppointmentController();
 			switch (input) {
 			case 1:
 				System.out.println("------------------------");
@@ -99,8 +100,13 @@ public class MenuController {
 				input = chooseMenuOption(2, true);
 				break;
 			case 3:
-				AppointmentController t = new AppointmentController();
-				t.zakazivanjeTermina(user);
+				a.makeAppointment(user);
+				break;
+			case 4:
+				a.getFutureAppointments();
+				break;
+			case 5:
+				a.getTodayAppointents();
 				break;
 			case 0:
 				System.out.println("Uspesno ste se izlogovali. \n");

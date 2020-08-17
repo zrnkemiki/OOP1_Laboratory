@@ -1,5 +1,8 @@
 package controller;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 import io_Stream.IOAnalysisRequest;
 import io_Stream.IOHandler;
 import model.Appointment;
@@ -10,7 +13,7 @@ import model.UserType;
 
 public class AppointmentController {
 
-	public void zakazivanjeTermina(User user) {
+	public void makeAppointment(User user) {
 		Appointment appointment = new Appointment();
 		System.out.println("-------------------------------------\n");
 		System.out.println("Zakazivanje novog termina: \n");
@@ -44,5 +47,24 @@ public class AppointmentController {
 		IOAnalysisRequest.updateAnalysisRequests();
 	}
 	
+	
 
+	public void getFutureAppointments() {
+		ArrayList<Appointment> a = DataBase.analysisRequests;
+		for(int i = 0; i < a.size(); i++) {
+			if(!a.get(i).getStatus().toUpperCase().equals("DONE")) {
+				System.out.println(a.get(i).getId() + ") " + a.get(i).consoleView());
+			}
+		}
+	}
+	
+	public void getTodayAppointents() {
+		ArrayList<Appointment> a = DataBase.analysisRequests;
+		for(int i = 0; i < a.size(); i++) {
+			if(!a.get(i).getStatus().toUpperCase().equals("DONE") && a.get(i).getDate().equals(LocalDate.now()) ) {
+				System.out.println(a.get(i).getId() + ") " + a.get(i).consoleView());
+			}
+		}
+	}
+	
 }
