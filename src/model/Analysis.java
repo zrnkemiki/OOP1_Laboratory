@@ -38,6 +38,7 @@ public abstract class Analysis {
 		this.lbo = lbo;
 	}
 	
+	public abstract String stringFileExport();
 	
 
 }

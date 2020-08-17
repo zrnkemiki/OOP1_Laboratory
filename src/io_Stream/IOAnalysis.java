@@ -50,7 +50,7 @@ public class IOAnalysis {
 			while ((s = in.readLine()) != null) {
 				s = s.trim();
 				String[] tokens = s.split("\\|");
-				if (tokens[0].equals("HematologicalAnalysis")) {
+				if (tokens[0].equals("HematologicalAnalysis")) { 
 					HematologicalAnalysis a = new HematologicalAnalysis();
 					a.setWhiteBloodCells(Double.valueOf(tokens[1]));
 					a.setWhiteBloodCells_referenceValue(tokens[2]);
@@ -62,10 +62,10 @@ public class IOAnalysis {
 					a.setHematocrite_referenceValue(tokens[8]);
 					a.setMCV(Double.valueOf(tokens[9]));
 					a.setMCV_referenceValue(tokens[10]);
-					a.setMCV_referenceValue(tokens[11]);
-					a.setMCH(Double.valueOf(tokens[12]));
-					a.setMCH_referenceValue(tokens[13]);
-					a.setMCHC(Double.valueOf(tokens[14]));
+					a.setMCH(Double.valueOf(tokens[11]));
+					a.setMCH_referenceValue(tokens[12]);
+					a.setMCHC(Double.valueOf(tokens[13]));
+					a.setMCH_referenceValue(tokens[14]);
 					a.setPlatelet(Double.valueOf(tokens[15]));
 					a.setPlatelet_referenceValue(tokens[16]);
 					a.setLymphocytes(Double.valueOf(tokens[17]));
@@ -74,8 +74,9 @@ public class IOAnalysis {
 					a.setMonocytes_referenceValue(tokens[20]);
 					a.setSedimentationRate(Double.valueOf(tokens[21]));
 					a.setSedimentationRate_referenceValue(tokens[22]);
-					a.setStatus(tokens[23]);
-					a.setDate(LocalDate.parse(tokens[24]));
+					a.setPrice(Integer.parseInt(tokens[23]));
+					a.setStatus(tokens[24]);
+					a.setDate(LocalDate.parse(tokens[25]));
 					a.setLbo(tokens[25]);
 					addAnalysisToDB(a);
 
@@ -94,7 +95,7 @@ public class IOAnalysis {
 					a.setDate(LocalDate.parse(tokens[11]));
 					a.setLbo(tokens[12]);
 					addAnalysisToDB(a);
-					
+
 				} else if (tokens[0].equals("BiochemistryAnalysis")) {
 					BiochemistryAnalysis a = new BiochemistryAnalysis();
 					a.setGlucose(Double.valueOf(tokens[1]));
@@ -121,7 +122,7 @@ public class IOAnalysis {
 					a.setLbo(tokens[22]);
 					addAnalysisToDB(a);
 				}
-				
+
 			}
 			in.close();
 		} catch (Exception e) {
@@ -137,6 +138,22 @@ public class IOAnalysis {
 			DataBase.allAnalysis.get(a.getLbo()).add(a);
 		}
 
+	}
+
+	public void createFile(Analysis analysis) {
+		String sadrzaj = "";
+		sadrzaj += analysis.stringFileExport() + "\n";
+		try {
+			fw = new FileWriter("src/Data/" + analysis.getLbo() + "_analysis.txt");
+			bw = new BufferedWriter(fw);
+			bw.write(sadrzaj);
+			bw.close();
+			System.out.println("Ukoliko je bilo izmena, fajl je izmenjen.");
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

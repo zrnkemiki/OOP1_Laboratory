@@ -18,7 +18,9 @@ public class Main {
 		lar.loadAnalysisRequests();
 		IOAnalysis ioa = new IOAnalysis();
 		ioa.loadAnalysis();
-
+		
+		//ioa.createFile(DataBase.allAnalysis.get("111111").get(0));
+		System.out.println(DataBase.allAnalysis.size());
 		System.out.println(DataBase.analysisRequests.get(0).toString());
 		IOUserData iouser = new IOUserData();
 		iouser.updateUsers();

@@ -106,4 +106,10 @@ public class HormonesAnalysis extends Analysis {
 				+ getPrice() + "|" + getStatus() + "|" + getDate() + "|" + getLbo();
 	}
 
+	@Override
+	public String stringFileExport() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

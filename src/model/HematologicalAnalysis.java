@@ -36,27 +36,27 @@ public class HematologicalAnalysis extends Analysis {
 	public void generateAnalysis() {
 		Random r = new Random();
 		this.whiteBloodCells = 3.0 + (14.40 - 3.0) * r.nextDouble();
-		this.whiteBloodCells_referenceValue = "4.0 - 10.0 | x10^9/L";
+		this.whiteBloodCells_referenceValue = "4.0 - 10.0 ; x10^9/L";
 		this.redBloodCells = 3.0 + (10.0 - 3.0) * r.nextDouble();
-		this.redBloodCells_referenceValue = "4.50 - 5.80 | x10^9/L";
+		this.redBloodCells_referenceValue = "4.50 - 5.80 ; x10^9/L";
 		this.hemoglobin = 100.0 + (200.0 - 100.0) * r.nextDouble();
-		this.hemoglobin_referenceValue = "130 - 180 | g/L";
+		this.hemoglobin_referenceValue = "130 - 180 ; g/L";
 		this.hematocrit = 0.2 + (0.7 - 0.2) * r.nextDouble();
-		this.hematocrite_referenceValue = "0.4 - 5.40 | L/L";
+		this.hematocrite_referenceValue = "0.4 - 5.40 ; L/L";
 		this.MCV = 70.0 + (100.0 - 70.0) * r.nextDouble();
-		this.MCV_referenceValue = "83.0 - 97.0 | fL";
+		this.MCV_referenceValue = "83.0 - 97.0 ; fL";
 		this.MCH = 20.0 + (36.0 - 20.0) * r.nextDouble();
-		this.MCH_referenceValue = "27.0 - 32.0 | pg";
+		this.MCH_referenceValue = "27.0 - 32.0 ; pg";
 		this.MCHC = 250.0 + (400.0 - 250.0) * r.nextDouble();
-		this.MCHC_refenceValue = "300 - 360 | g/L";
+		this.MCHC_refenceValue = "300 - 360 ; g/L";
 		this.platelet = 100.0 + (500.0 - 100.0) * r.nextDouble();
-		this.platelet_referenceValue = "140 - 450 | x10^9/L";
+		this.platelet_referenceValue = "140 - 450 ; x10^9/L";
 		this.lymphocytes = 15.0 + (60.0 - 15.0) * r.nextDouble();
-		this.lymphocytes_referenceValue = "20.0 - 46.0 | %";
+		this.lymphocytes_referenceValue = "20.0 - 46.0 ; %";
 		this.monocytes = 1.0 + (14.0 - 1.0) * r.nextDouble();
-		this.monocytes_referenceValue = "2.0 - 12.0 | %";
+		this.monocytes_referenceValue = "2.0 - 12.0 ; %";
 		this.sedimentationRate = 0.0 + (14.0 - 0.0) * r.nextDouble();
-		this.sedimentationRate_referenceValue = "0 - 10 | mm/1h";
+		this.sedimentationRate_referenceValue = "0 - 10 ; mm/1h";
 		this.setPrice(1000);
 		this.setStatus("Done");
 		this.setDate(LocalDate.now());
@@ -248,6 +248,12 @@ public class HematologicalAnalysis extends Analysis {
 				+ platelet_referenceValue + "|" + lymphocytes + "|" + lymphocytes_referenceValue + "|" + monocytes + "|"
 				+ monocytes_referenceValue + "|" + sedimentationRate + "|" + sedimentationRate_referenceValue + "|"
 				+ getPrice() + "|" + getStatus() + "|" + getDate() + "|" + getLbo();
+	}
+
+	@Override
+	public String stringFileExport() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
