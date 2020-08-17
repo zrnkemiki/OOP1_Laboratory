@@ -169,11 +169,9 @@ public class IOUserData {
 	public void updateUsers() {
 		String sadrzaj = "";
 		for (User u : DataBase.users.values()) {
-			System.out.println(u);
 			if(u.getAnalizeId() == null) {
 				u.setAnalizeId(new ArrayList<Integer>());
 			}
-			System.out.println(u);
 			sadrzaj += u.toString().replace("|null|", "|").replace("[", "").replace("]", "").replace("|null", "") + "\n";
 
 		}
@@ -182,7 +180,6 @@ public class IOUserData {
 			bw = new BufferedWriter(fw);
 			bw.write(sadrzaj);
 			bw.close();
-			System.out.println("Ukoliko je bilo izmena, fajl je izmenjen.");
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

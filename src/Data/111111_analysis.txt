@@ -1,18 +1,18 @@
 BiochemistryAnalysis
 ---------------------------------------------------
 PARAMETAR  | VREDNOST | MIN - MAX | JEDINICA MERE 
-GLUCOSE    | 6.21     | 3.9 - 6.1
-UREA       | 7.20     | 2.8 - 8.1
-creatinine | 103.47   | 62 - 106
-Bilirubin  | 22.07    |< 21.00
-AST        | 31.11    | < 40.00
-ALT        | 41.07    | < 41.00
-Cholesterol| 7.05     | 3.90 - 6.20
-HDL        | 2.24     |  > 1.04
-Iron       | 25.46    | 5.8 - 34.5
+GLUCOSE    | 7.85     | 3.9 - 6.1
+UREA       | 9.34     | 2.8 - 8.1
+creatinine | 116.76   | 62 - 106
+Bilirubin  | 18.72    | < 21.00
+AST        | 21.12    | < 40.00
+ALT        | 16.71    | < 41.00
+Cholesterol| 3.34     | 3.90 - 6.20
+HDL        | 2.29     | > 1.04
+Iron       | 10.20    | 5.8 - 34.5
 
 ----------------------------------------------------
 Price      | 1000RSD 
 Status     | Done
-Date       | 2020-08-15
+Date       | 2020-08-17
 LBO        | 111111

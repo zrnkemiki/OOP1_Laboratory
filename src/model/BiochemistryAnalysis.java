@@ -208,7 +208,7 @@ public class BiochemistryAnalysis extends Analysis {
 				+ cholesterol + "|" + cholesterol_ReferenceValue + "|" + HDL
 				+ "|" + HDL_ReferenceValue + "|" + iron + "|"
 				+ iron_ReferenceValue + "|" + getPrice() + "|" + getStatus() + "|"
-				+ getDate() + "|" + getLbo();
+				+ getDate() + "|" + getLbo() + "|"  + getId() ;
 	}
 	
 

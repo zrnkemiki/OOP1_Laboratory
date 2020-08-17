@@ -1,8 +1,7 @@
 package controller;
 
 import java.util.ArrayList;
-
-import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
+import java.util.UUID;
 
 import io_Stream.IOAnalysis;
 import io_Stream.IOHandler;
@@ -48,7 +47,10 @@ public class AnalysisController {
 			analysis.setLbo(lbo);
 		}
 
+		analysis.setId(UUID.randomUUID().toString());
+
 		if (DataBase.allAnalysis.containsKey(lbo)) {
+			
 			DataBase.allAnalysis.get(lbo).add(analysis);
 			IOAnalysis.updateAnalysis();
 			System.out.println("Pacijent vec ima karton. Analiza je dodata.");

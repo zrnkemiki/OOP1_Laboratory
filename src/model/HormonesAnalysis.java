@@ -119,7 +119,7 @@ public class HormonesAnalysis extends Analysis {
 	public String toString() {
 		return "HormonesAnalysis|" + FSH + "|" + FSH_referenceValue + "|" + LH + "|" + LH_referenceValue + "|"
 				+ testosterone + "|" + testosterone_referenceValue + "|" + TSH + "|" + TSH_referenceValue + "|"
-				+ getPrice() + "|" + getStatus() + "|" + getDate() + "|" + getLbo();
+				+ getPrice() + "|" + getStatus() + "|" + getDate() + "|" + getLbo() + "|"  + getId();
 	}
 	
 

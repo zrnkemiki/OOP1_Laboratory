@@ -41,7 +41,6 @@ public class IOAnalysisRequest {
 					ar.setStatus(tokens[4]);
 					ar.setAnalysisId(Long.valueOf(tokens[5]));
 					DataBase.analysisRequests.add(ar);
-					System.out.println(ar.toString());
 			}
 			}
 			in.close();

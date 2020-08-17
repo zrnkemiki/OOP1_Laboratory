@@ -241,13 +241,13 @@ public class HematologicalAnalysis extends Analysis {
 
 	@Override
 	public String toString() {
-		return "HematologicalAnalysis|" + whiteBloodCells + "|" + whiteBloodCells_referenceValue + "|" + redBloodCells
+		return "HematologicalAnalysis|" + getId() + "|" + whiteBloodCells + "|" + whiteBloodCells_referenceValue + "|" + redBloodCells
 				+ "|" + redBloodCells_referenceValue + "|" + hemoglobin + "|" + hemoglobin_referenceValue + "|"
 				+ hematocrit + "|" + hematocrite_referenceValue + "|" + MCV + "|" + MCV_referenceValue + "|" + MCH + "|"
 				+ MCH_referenceValue + "|" + MCHC + "|" + MCHC_refenceValue + "|" + platelet + "|"
 				+ platelet_referenceValue + "|" + lymphocytes + "|" + lymphocytes_referenceValue + "|" + monocytes + "|"
 				+ monocytes_referenceValue + "|" + sedimentationRate + "|" + sedimentationRate_referenceValue + "|"
-				+ getPrice() + "|" + getStatus() + "|" + getDate() + "|" + getLbo();
+				+ getPrice() + "|" + getStatus() + "|" + getDate() + "|" + getLbo() + "|"  + getId() ;
 	}
 
 	@Override

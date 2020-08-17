@@ -78,6 +78,7 @@ public class IOAnalysis {
 					a.setStatus(tokens[24]);
 					a.setDate(LocalDate.parse(tokens[25]));
 					a.setLbo(tokens[25]);
+					a.setId(tokens[26]);
 					addAnalysisToDB(a);
 
 				} else if (tokens[0].equals("HormonesAnalysis")) {
@@ -94,6 +95,7 @@ public class IOAnalysis {
 					a.setStatus(tokens[10]);
 					a.setDate(LocalDate.parse(tokens[11]));
 					a.setLbo(tokens[12]);
+					a.setId(tokens[13]);
 					addAnalysisToDB(a);
 
 				} else if (tokens[0].equals("BiochemistryAnalysis")) {
@@ -120,6 +122,7 @@ public class IOAnalysis {
 					a.setStatus(tokens[20]);
 					a.setDate(LocalDate.parse(tokens[21]));
 					a.setLbo(tokens[22]);
+					a.setId(tokens[23]);
 					addAnalysisToDB(a);
 				}
 

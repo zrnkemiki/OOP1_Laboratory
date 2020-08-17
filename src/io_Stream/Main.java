@@ -20,13 +20,7 @@ public class Main {
 		IOAnalysis ioa = new IOAnalysis();
 		ioa.loadAnalysis();
 		
-		UUID uuid = UUID.randomUUID();
-        String randomUUIDString = uuid.toString();
-        System.out.println(randomUUIDString);
 		
-		//ioa.createFile(DataBase.allAnalysis.get("111111").get(0));
-		System.out.println(DataBase.allAnalysis.size());
-		System.out.println(DataBase.analysisRequests.get(0).toString());
 		IOUserData iouser = new IOUserData();
 		iouser.updateUsers();
 		MenuController menu = new MenuController();
