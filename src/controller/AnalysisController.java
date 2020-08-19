@@ -6,6 +6,7 @@ import java.util.UUID;
 import io_Stream.IOAnalysis;
 import io_Stream.IOHandler;
 import model.Analysis;
+import model.Appointment;
 import model.BiochemistryAnalysis;
 import model.DataBase;
 import model.HematologicalAnalysis;
@@ -18,7 +19,7 @@ public class AnalysisController {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void createAnalysis() {
+	public void createAnalysisFromScratch() {
 		Analysis analysis = null;
 		String lbo = "";
 		System.out.println("Izaberite tip analize:");
@@ -61,28 +62,77 @@ public class AnalysisController {
 			System.out.println("Pacijent nije imao karton. Novi karton je napravljen i analiza dodata.");
 		}
 	}
+	
+	public void createAnalysisFromAppointment(int id) {
+		Analysis analysis = null;
+		AppointmentController apc = new AppointmentController();
+		Appointment a = apc.getAppointmentByID(id);
+		System.out.println("Analiza je zakzana za pacijenta sa LBO: " + a.getLBO());
+		
+		if (!DataBase.allAnalysis.containsKey(a.getLBO())) {
+			DataBase.allAnalysis.put(a.getLBO(), new ArrayList<>());
+			System.out.println("Pacijent nije imao karton. Novi karton je napravljen.");
+		}
+		
+		if (a.getAnalysisType().contains("BIOHEMIJA")) {
+			analysis = new BiochemistryAnalysis();
+			analysis.generateAnalysis();
+			System.out.println("Analiza biohemije uspesno uradjena.");
+			analysis.setLbo(a.getLBO());
+			DataBase.allAnalysis.get(a.getLBO()).add(analysis);
+		} 
+		if (a.getAnalysisType().contains("HORMONI")) {
+			analysis = new HormonesAnalysis();
+			analysis.generateAnalysis();
+			System.out.println("Analiza hormona uspesno uradjena.");
+			analysis.setLbo(a.getLBO());
+			DataBase.allAnalysis.get(a.getLBO()).add(analysis);
+		}
+		if (a.getAnalysisType().contains("HEMATOLOGIJA")) {
+			analysis = new HematologicalAnalysis();
+			analysis.generateAnalysis();
+			System.out.println("Analiza hematologije uspesno uradjena.");
+			analysis.setLbo(a.getLBO());
+			DataBase.allAnalysis.get(a.getLBO()).add(analysis);
+		}
 
-	public void getAnalysisByLBO(String LBO) {
+		analysis.setId(UUID.randomUUID().toString());
+
+		IOAnalysis.updateAnalysis();
+		
+	}
+
+	public ArrayList<Analysis> getAnalysisByLBO(String LBO) {
 		ArrayList<Analysis> a = DataBase.allAnalysis.get(LBO);
-		exportAnalysis(a);
+		return a;
 	}
 
 	public void exportAnalysis(ArrayList<Analysis> a) {
+		System.out.println("---|----------------------------------|------------------|");
 		for (int i = 0; i < a.size(); i++) {
 			if (a.get(i) instanceof BiochemistryAnalysis) {
-				System.out.println(i + 1 + ") Biohemijska analiza radjena dana " + a.get(i).getDate());
+				System.out.println(i + 1 + "  | Biohemijska analiza radjena dana |  " + a.get(i).getDate()+ "      |") ;
+				System.out.println("---|----------------------------------|------------------|");
 			}
 			else if (a.get(i) instanceof HormonesAnalysis) {
-				System.out.println(i + 1 + ") Hormonska analiza radjena dana " + a.get(i).getDate());
+				System.out.println(i + 1 + "  | Hormonska analiza radjena dana   |  " + a.get(i).getDate()+ "      |");
+				System.out.println("---|----------------------------------|------------------|");
 			}
-			else if (a.get(i) instanceof HormonesAnalysis) {
-				System.out.println(i + 1 + ") Hematoloska analiza radjena dana " + a.get(i).getDate());
+			else if (a.get(i) instanceof HematologicalAnalysis) {
+				System.out.println(i + 1 + "  | Hematoloska analiza radjena dana |" + a.get(i).getDate()+ "       |");
+				System.out.println("---|----------------------------------|------------------|");
 			}
 		}
 		System.out.println("Izaberite nalaz koji zelite da eksportujete:");
+		System.out.println("0 za povratak u prethodni meni");
 		IOAnalysis ioa = new IOAnalysis();
 		int id = IOHandler.intInput();
-		ioa.createFile(a.get(id-1));
+		if(id != 0) {
+			ioa.createFile(a.get(id-1));
+		}
+		else if(id == 0) {
+			System.out.println("Odustali ste od eksportovanja fajla.");
+		}
 	}
 
 }

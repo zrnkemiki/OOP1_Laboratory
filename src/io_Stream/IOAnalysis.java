@@ -77,8 +77,8 @@ public class IOAnalysis {
 					a.setPrice(Integer.parseInt(tokens[23]));
 					a.setStatus(tokens[24]);
 					a.setDate(LocalDate.parse(tokens[25]));
-					a.setLbo(tokens[25]);
-					a.setId(tokens[26]);
+					a.setLbo(tokens[26]);
+					a.setId(tokens[27]);
 					addAnalysisToDB(a);
 
 				} else if (tokens[0].equals("HormonesAnalysis")) {

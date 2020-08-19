@@ -63,7 +63,7 @@ public class MenuController {
 				break;
 			case 2:
 				AnalysisController ac = new AnalysisController();
-				ac.getAnalysisByLBO(user.getLBO());
+				ac.exportAnalysis(ac.getAnalysisByLBO(user.getLBO()));
 				
 				break;
 			case 3:
@@ -95,9 +95,10 @@ public class MenuController {
 				break;
 			case 2:
 				System.out.println("-------------------------------------\n");
-				System.out.println("1) TO-DO Pregled analiza");
-				System.out.println("0) Izlazak iz programa");
-				input = chooseMenuOption(2, true);
+				AnalysisController ac = new AnalysisController();
+				System.out.println("Please enter patient LBO: ");
+				String lbo = IOHandler.existingLboInput();
+				ac.exportAnalysis(ac.getAnalysisByLBO(lbo));
 				break;
 			case 3:
 				a.makeAppointment(user);
@@ -119,13 +120,16 @@ public class MenuController {
 			System.out.println("-------------------------------------\n");
 			System.out.println("1) Nova analiza.");
 			System.out.println("2) Pregled analiza.");
+			System.out.println("3) Analize zakazane za danas.");
 			System.out.println("0) Odjavljivanje.");
-			input = chooseMenuOption(2, true);
+			input = chooseMenuOption(4, true);
+			AnalysisController ac = new AnalysisController();
+			AppointmentController apc = new AppointmentController();
 			switch (input) {
 			case 1:
 				System.out.println("------------------------");
-				AnalysisController ac = new AnalysisController();
-				ac.createAnalysis();
+				ac = new AnalysisController();
+				ac.createAnalysisFromScratch();
 				System.out.println(DataBase.allAnalysis.keySet());
 				break;
 			case 2:
@@ -133,6 +137,14 @@ public class MenuController {
 				System.out.println("1) TO-DO Pregled analiza");
 				System.out.println("0) Izlazak iz programa");
 				input = chooseMenuOption(2, true);
+				break;
+			case 3:
+				System.out.println("-------------------------------------\n");
+				System.out.println("Analize zakazane za danas, uzorci uzeti: ");
+				apc.getTodayReadyAppointents();
+				System.out.println("Unesite broj analize koju zelite da uradite: ");
+				int i = IOHandler.intInput();
+				ac.createAnalysisFromAppointment(i);
 				break;
 			case 0:
 				System.out.println("Uspesno ste se izlogovali. \n");

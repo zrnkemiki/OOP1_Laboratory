@@ -1,7 +1,7 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.ArrayList;
 
 public class Appointment {
 	private long id;
@@ -9,6 +9,7 @@ public class Appointment {
 	private LocalDate date;
 	private CollectionType collectionType;
 	private String status;
+	private ArrayList<String> analysisType;
 	private long analysisId;
 	
 	
@@ -16,6 +17,19 @@ public class Appointment {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	
+
+	public ArrayList<String> getAnalysisType() {
+		return analysisType;
+	}
+
+
+
+	public void setAnalysisType(ArrayList<String> analysisType) {
+		this.analysisType = analysisType;
+	}
+
 
 
 	public long getId() {
@@ -81,7 +95,7 @@ public class Appointment {
 	@Override
 	public String toString() {
 		return id + "|" + LBO + "|" + date + "|" + collectionType
-				+ "|" + status + "|" + analysisId;
+				+ "|" + status + "|" + getAnalysisType() + "|"+ analysisId;
 	}
 
 	

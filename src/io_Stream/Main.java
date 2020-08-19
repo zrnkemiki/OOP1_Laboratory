@@ -15,8 +15,9 @@ public class Main {
 		// TODO Auto-generated method stub
 		IOUserData ld = new IOUserData();
 		ld.loadUsers();
-		IOAnalysisRequest lar = new IOAnalysisRequest();
-		lar.loadAnalysisRequests();
+		IOAppointment lar = new IOAppointment();
+		lar.loadAppointments();
+		System.out.println(DataBase.analysisRequests.get(0));
 		IOAnalysis ioa = new IOAnalysis();
 		ioa.loadAnalysis();
 		

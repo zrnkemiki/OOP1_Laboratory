@@ -172,7 +172,8 @@ public class IOUserData {
 			if(u.getAnalizeId() == null) {
 				u.setAnalizeId(new ArrayList<Integer>());
 			}
-			sadrzaj += u.toString().replace("|null|", "|").replace("[", "").replace("]", "").replace("|null", "") + "\n";
+			sadrzaj += u.toString().replace("|null|", "|").replace("[", "").replace("]", "").replace("|null", "")
+					+ "\n";
 
 		}
 		try {

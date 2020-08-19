@@ -1,18 +1,19 @@
-BiochemistryAnalysis
+HematologicalAnalysis
 ---------------------------------------------------
-PARAMETAR  | VREDNOST | MIN - MAX | JEDINICA MERE 
-GLUCOSE    | 7.85     | 3.9 - 6.1
-UREA       | 9.34     | 2.8 - 8.1
-creatinine | 116.76   | 62 - 106
-Bilirubin  | 18.72    | < 21.00
-AST        | 21.12    | < 40.00
-ALT        | 16.71    | < 41.00
-Cholesterol| 3.34     | 3.90 - 6.20
-HDL        | 2.29     | > 1.04
-Iron       | 10.20    | 5.8 - 34.5
-
+PARAMETAR   | VREDNOST | MIN - MAX | JEDINICA MERE 
+WhiteB.Cells|6.69      |4.0 - 10.0 ; x10^9/L
+RedB.Cells  |9.10      |4.50 - 5.80 ; x10^9/L
+Hemoglobin  |187.25    |130 - 180 ; g/L
+Hematocrit  |0.63      |0.4 - 5.40 ; L/L
+MCV         |90.01     |83.0 - 97.0 ; fL
+MCH         |35.29     |300 - 360 ; g/L
+MCHC        |322.90    |null
+Platelet    |365.81    |140 - 450 ; x10^9/L
+Lymphocytes |22.49     |20.0 - 46.0 ; %
+Monocytes   |7.81      |2.0 - 12.0 ; %
+Sed. rate   |6.62      |0 - 10 ; mm/1h
 ----------------------------------------------------
 Price      | 1000RSD 
 Status     | Done
-Date       | 2020-08-17
+Date       | 2020-08-19
 LBO        | 111111
